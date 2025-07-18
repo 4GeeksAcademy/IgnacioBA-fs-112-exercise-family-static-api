@@ -26,14 +26,18 @@ class FamilyStructure:
         return generated_id
 
     def add_member(self, member):
-        ## You have to implement this method
-        ## Append the member to the list of _members
-        pass
+        member["id"] = self._generate_id()
+        member["last_name"] = self.last_name
+        self._members.append(member)
+       
 
     def delete_member(self, id):
-        ## You have to implement this method
-        ## Loop the list and delete the member with the given id
-        pass
+        for member in self._members:
+            if member["id"] == id:
+                self._members.remove(member)
+                return True
+        return False
+
 
     def get_member(self, id):
         ## You have to implement this method
