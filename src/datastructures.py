@@ -29,7 +29,7 @@ class FamilyStructure:
         member["id"] = self._generate_id()
         member["last_name"] = self.last_name
         self._members.append(member)
-       
+        return "miembro agregado"
 
     def delete_member(self, id):
         for member in self._members:
@@ -40,9 +40,10 @@ class FamilyStructure:
 
 
     def get_member(self, id):
-        ## You have to implement this method
-        ## Loop all the members and return the one with the given id
-        pass
+        for member in self._members:
+            if member["id"] == id:
+                return member
+        
 
     # This method is done, it returns a list with all the family members
     def get_all_members(self):

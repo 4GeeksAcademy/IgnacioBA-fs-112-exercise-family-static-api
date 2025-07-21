@@ -37,6 +37,14 @@ def handle_hello():
     response_body = {"family": members}
     return jsonify(response_body), 200
 
+@app.route('/member/<int:id>', methods=['GET'])
+def get_member(id):
+    success = jackson_family.get_member(id)
+    if success:
+        return jsonify(success), 200
+    else:
+        return jsonify({"error": "Miembro no encontrado"}), 404
+
 @app.route('/member', methods=['POST'])
 def add_member():
     member_data = request.json  
